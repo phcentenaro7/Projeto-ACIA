@@ -1,0 +1,37 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Interface"
+run/main_scene="res://LoadingScreen.tscn"
+config/features=PackedStringArray("4.1", "C#", "Forward Plus")
+run/max_fps=30
+config/icon="res://icon.svg"
+
+[autoload]
+
+Globals="*res://globals.gd"
+Serial="*res://scripts/products/serial.cs"
+Database="*res://scripts/products/database.cs"
+
+[display]
+
+window/size/viewport_width=1366
+window/size/viewport_height=768
+window/size/mode=3
+
+[dotnet]
+
+project/assembly_name="Interface"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.960784, 0.960784, 0.960784, 1)

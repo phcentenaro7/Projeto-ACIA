@@ -1,0 +1,105 @@
+[gd_scene load_steps=11 format=3 uid="uid://rrwehfsffou8"]
+
+[ext_resource type="Script" path="res://header.gd" id="1_e0alh"]
+[ext_resource type="Script" path="res://header_center_container.gd" id="2_ivgcg"]
+[ext_resource type="Theme" uid="uid://jygne2p2nio0" path="res://skyblueshort.tres" id="3_5y1qa"]
+[ext_resource type="Script" path="res://header_label.gd" id="4_k2ltr"]
+[ext_resource type="Script" path="res://scripts/products/weight_rectangle.gd" id="5_6rheh"]
+[ext_resource type="Script" path="res://back_button.gd" id="5_ttxpv"]
+[ext_resource type="Script" path="res://scripts/products/confirm_button.gd" id="8_a4dxl"]
+[ext_resource type="Script" path="res://scripts/products/list_button.gd" id="9_7qy40"]
+[ext_resource type="Theme" uid="uid://bttnwqpmckhok" path="res://skyblue.tres" id="11_vi40f"]
+[ext_resource type="Script" path="res://scripts/products/product_list.gd" id="12_lmwu1"]
+
+[node name="Products" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HeaderRectangle" type="ColorRect" parent="Header"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_e0alh")
+
+[node name="HeaderCenterContainer" type="CenterContainer" parent="Header"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_ivgcg")
+
+[node name="HeaderLabel" type="Label" parent="Header/HeaderCenterContainer"]
+layout_mode = 2
+theme = ExtResource("3_5y1qa")
+script = ExtResource("4_k2ltr")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 20.0
+offset_top = 33.0
+offset_right = 20.0
+offset_bottom = 33.0
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("11_vi40f")
+script = ExtResource("5_6rheh")
+
+[node name="HeaderCenterContainer" type="CenterContainer" parent="Control"]
+offset_right = 40.0
+offset_bottom = 67.0
+script = ExtResource("2_ivgcg")
+
+[node name="HeaderLabel" type="Label" parent="Control/HeaderCenterContainer"]
+layout_mode = 2
+theme = ExtResource("3_5y1qa")
+script = ExtResource("4_k2ltr")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 16.0
+offset_top = 29.0
+offset_right = 24.0
+offset_bottom = 37.0
+theme = ExtResource("3_5y1qa")
+script = ExtResource("5_ttxpv")
+
+[node name="ConfirmButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("3_5y1qa")
+script = ExtResource("8_a4dxl")
+
+[node name="ListButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("3_5y1qa")
+script = ExtResource("9_7qy40")
+
+[node name="ProductList" type="ItemList" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("11_vi40f")
+icon_mode = 0
+script = ExtResource("12_lmwu1")
+
+[connection signal="pressed" from="BackButton" to="ProductList" method="_on_back_button_pressed"]
+[connection signal="pressed" from="ConfirmButton" to="ProductList" method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="ListButton" to="ListButton" method="_on_pressed"]
+[connection signal="pressed" from="ListButton" to="ProductList" method="_on_list_button_pressed"]
+[connection signal="item_clicked" from="ProductList" to="ProductList" method="_on_item_clicked"]

@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://7sbw30pvqwbv"]
+
+[ext_resource type="Script" path="res://header.gd" id="1_gutv6"]
+[ext_resource type="Script" path="res://header_center_container.gd" id="2_oh8uv"]
+[ext_resource type="Theme" uid="uid://bttnwqpmckhok" path="res://skyblue.tres" id="3_dirmy"]
+[ext_resource type="Theme" uid="uid://jygne2p2nio0" path="res://skyblueshort.tres" id="3_tbqe2"]
+[ext_resource type="Script" path="res://header_label.gd" id="4_51537"]
+[ext_resource type="Script" path="res://scripts/main_menu/session_start_button.gd" id="6_d52ab"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Header" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HeaderRectangle" type="ColorRect" parent="Header"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_gutv6")
+
+[node name="HeaderCenterContainer" type="CenterContainer" parent="Header"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_oh8uv")
+
+[node name="HeaderLabel" type="Label" parent="Header/HeaderCenterContainer"]
+layout_mode = 2
+theme = ExtResource("3_tbqe2")
+script = ExtResource("4_51537")
+
+[node name="MainScreen" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="SessionStartButton" type="Button" parent="MainScreen"]
+layout_mode = 0
+offset_left = -53.0
+offset_top = -170.0
+offset_right = 56.0
+offset_bottom = -122.0
+theme = ExtResource("3_dirmy")
+script = ExtResource("6_d52ab")
+
+[connection signal="pressed" from="MainScreen/SessionStartButton" to="MainScreen/SessionStartButton" method="_on_pressed"]

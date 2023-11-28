@@ -1,0 +1,20 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c5tojl58tq4u6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gt6un"]
+bg_color = Color(0.160784, 0.658824, 0.807843, 0.780392)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3as0i"]
+bg_color = Color(0.0823529, 0.380392, 0.752941, 1)
+border_width_left = 15
+border_width_right = 15
+border_color = Color(0.177, 0.674901, 0.941503, 1)
+
+[resource]
+ItemList/colors/font_color = Color(1, 1, 1, 1)
+ItemList/font_sizes/font_size = 42
+ItemList/styles/panel = SubResource("StyleBoxFlat_gt6un")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_3as0i")
