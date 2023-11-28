@@ -1,0 +1,119 @@
+[gd_scene load_steps=14 format=3 uid="uid://b4nish1fi1j0h"]
+
+[ext_resource type="Script" path="res://header.gd" id="1_eqhuv"]
+[ext_resource type="Script" path="res://header_center_container.gd" id="2_s2sog"]
+[ext_resource type="Theme" uid="uid://jygne2p2nio0" path="res://skyblueshort.tres" id="3_qw7ft"]
+[ext_resource type="Script" path="res://header_label.gd" id="4_gj642"]
+[ext_resource type="Theme" uid="uid://c5tojl58tq4u6" path="res://buylisttheme.tres" id="5_seyje"]
+[ext_resource type="Script" path="res://scripts/buy_list/buy_list.gd" id="5_w2in1"]
+[ext_resource type="Script" path="res://scripts/buy_list/cancel_button.gd" id="6_q2n0n"]
+[ext_resource type="Script" path="res://scripts/buy_list/finish_button.gd" id="7_5v8wa"]
+[ext_resource type="Script" path="res://scripts/buy_list/fruits_button.gd" id="8_nylmy"]
+[ext_resource type="Theme" uid="uid://bttnwqpmckhok" path="res://skyblue.tres" id="10_4w4se"]
+[ext_resource type="Script" path="res://scripts/products/weight_rectangle.gd" id="11_lghl5"]
+[ext_resource type="Script" path="res://scripts/products/weight_center_container.gd" id="12_rl6x7"]
+[ext_resource type="Script" path="res://scripts/buy_list/total_price_label.gd" id="13_3nrlj"]
+
+[node name="BuyList" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HeaderRectangle" type="ColorRect" parent="Header"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 617.0
+offset_bottom = 406.0
+script = ExtResource("1_eqhuv")
+
+[node name="HeaderCenterContainer" type="CenterContainer" parent="Header"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 7.0
+offset_right = 575.0
+offset_bottom = 309.0
+script = ExtResource("2_s2sog")
+
+[node name="HeaderLabel" type="Label" parent="Header/HeaderCenterContainer"]
+layout_mode = 2
+theme = ExtResource("3_qw7ft")
+script = ExtResource("4_gj642")
+
+[node name="BuyList" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 44.0
+offset_right = 176.0
+offset_bottom = 241.0
+theme = ExtResource("5_seyje")
+script = ExtResource("5_w2in1")
+
+[node name="CancelButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 213.0
+offset_right = 253.0
+offset_bottom = 221.0
+theme = ExtResource("3_qw7ft")
+script = ExtResource("6_q2n0n")
+
+[node name="FinishButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("3_qw7ft")
+script = ExtResource("7_5v8wa")
+
+[node name="FruitsButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("3_qw7ft")
+script = ExtResource("8_nylmy")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 20.0
+offset_top = 33.0
+offset_right = 20.0
+offset_bottom = 33.0
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 181.0
+offset_top = 33.0
+offset_right = 414.0
+offset_bottom = 132.0
+tooltip_text = "Teste
+"
+theme = ExtResource("10_4w4se")
+script = ExtResource("11_lghl5")
+
+[node name="TotalPriceCenterContainer" type="CenterContainer" parent="Control"]
+layout_mode = 0
+offset_left = -97.0
+offset_top = -39.0
+offset_right = -57.0
+offset_bottom = 49.0
+script = ExtResource("12_rl6x7")
+
+[node name="TotalPriceLabel" type="Label" parent="Control/TotalPriceCenterContainer"]
+layout_mode = 2
+theme = ExtResource("3_qw7ft")
+script = ExtResource("13_3nrlj")
+
+[connection signal="pressed" from="CancelButton" to="BuyList" method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="FinishButton" to="BuyList" method="_on_finish_button_pressed"]
+[connection signal="pressed" from="FinishButton" to="FinishButton" method="_on_pressed"]
+[connection signal="pressed" from="FruitsButton" to="FruitsButton" method="_on_pressed"]
