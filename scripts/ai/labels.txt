@@ -1,0 +1,7 @@
+0 Batata
+1 Beringela
+2 Cenoura
+3 Chuchu
+4 Maçã
+5 Rabanete
+6 Tomate
